@@ -1,2 +1,4 @@
-# Simple-TODO-List
-Simple TO-DO List application created with react-redux
+### Simple-TODO-List
+Simple TODO List application created with react-redux
+
+<img src="./preview.png" alt="preview" />
