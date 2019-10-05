@@ -1,8 +1,8 @@
 import {TaskSchema} from "../reducers";
 
 export enum ACTION {
-	ADD_TASK = "ADD TASK",
-	DELETE_TASK = "DELETE TASK"
+	ADD_TASK,
+	DELETE_TASK
 }
 
 export interface ActionAddTask {
