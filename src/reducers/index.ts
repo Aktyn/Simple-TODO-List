@@ -5,10 +5,11 @@ export interface TaskSchema {
 	content: string;
 }
 
-let saved_state = localStorage.getItem('state');
+let saved_tasks = localStorage.getItem('tasks');
 
-const initialState = saved_state ? JSON.parse(saved_state) : {
-	tasks: [] as TaskSchema[]
+const initialState = {
+	tasks: (saved_tasks ? JSON.parse(saved_tasks) : []) as TaskSchema[],
+	rejected_task_reason: null as (null | string)
 };
 
 export type StateType = typeof initialState;
@@ -18,11 +19,16 @@ export default function rootReducer(state = initialState, action: ActionSchema):
 	switch (action.type) {
 		case ACTION.ADD_TASK: return {
 			...state,
-			tasks: [...state.tasks, action.data],
+			rejected_task_reason: null,
+			tasks: state.tasks.concat({timestamp: Date.now(), content: action.content})
 		};
 		case ACTION.DELETE_TASK: return {
 			...state,
-			tasks: state.tasks.filter((task: TaskSchema) => task.timestamp !== action.data.task_timestamp)
+			tasks: state.tasks.filter((task: TaskSchema) => task.timestamp !== action.timestamp)
+		};
+		case ACTION.REJECT_TASK: return {
+			...state,
+			rejected_task_reason: action.reason
 		};
 	}
 	

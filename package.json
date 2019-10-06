@@ -15,7 +15,6 @@
 	"bugs": {
 		"url": "https://github.com/Aktyn/Simple-TODO-List/issues"
 	},
-	"homepage": "https://github.com/Aktyn/Simple-TODO-List#readme",
 	"dependencies": {
 		"react": "^16.10.2",
 		"react-dom": "^16.10.2",

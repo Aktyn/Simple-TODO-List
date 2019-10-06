@@ -1,10 +1,6 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import rootReducer from "../reducers/index";
+import {integrityChecker, storageSaver} from "../middleware";
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(integrityChecker, storageSaver));
 export default store;
-
-store.subscribe(() => {
-	//save to local storage
-	localStorage.setItem('state', JSON.stringify(store.getState()))
-});

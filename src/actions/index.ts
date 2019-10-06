@@ -1,18 +1,24 @@
-import {TaskSchema} from "../reducers";
+// import {TaskSchema} from "../reducers";
 
 export enum ACTION {
 	ADD_TASK,
-	DELETE_TASK
+	DELETE_TASK,
+	REJECT_TASK
 }
 
 export interface ActionAddTask {
 	type: ACTION.ADD_TASK;
-	data: TaskSchema;
+	content: string;
 }
 
 export interface ActionDeleteTask {
 	type: ACTION.DELETE_TASK;
-	data: {task_timestamp: number};
+	timestamp: number
 }
 
-export type ActionSchema = ActionAddTask | ActionDeleteTask;
+export interface ActionRejectTask {
+	type: ACTION.REJECT_TASK;
+	reason: string;
+}
+
+export type ActionSchema = ActionAddTask | ActionDeleteTask | ActionRejectTask;

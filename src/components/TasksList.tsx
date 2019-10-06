@@ -5,7 +5,7 @@ import {ACTION, ActionDeleteTask} from "../actions";
 
 function mapDispatchToProps(dispatch: Dispatch<ActionDeleteTask>) {
 	return {
-		deleteTask: (task_timestamp: number) => dispatch({type: ACTION.DELETE_TASK, data: {task_timestamp}})
+		deleteTask: (timestamp: number) => dispatch({type: ACTION.DELETE_TASK, timestamp})
 	};
 }
 
@@ -14,7 +14,7 @@ const mapStateToProps = (state: StateType) => {
 };
 
 interface TasksListProps {
-	deleteTask(task_timestamp: number): void;
+	deleteTask(timestamp: number): void;
 	tasks: TaskSchema[];
 }
 
