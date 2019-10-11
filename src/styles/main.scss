@@ -7,6 +7,11 @@ html, body {
 	margin: 0;
 	padding: 0;
 	text-align: center;
+	background-color: #fff;
+}
+
+button {
+	cursor: pointer;
 }
 
 .layout {
@@ -21,7 +26,7 @@ html, body {
 	max-height: 100vh;
 	overflow-y: auto;
 	
-	& > * {
+	& > * {//individual task
 		animation: appear 0.3s ease-in-out forwards;
 		
 		@keyframes appear {
@@ -41,10 +46,15 @@ html, body {
 			border-bottom: 1px solid #0008;
 		}
 		
-		& > .delete-btn {
+		& > .delete-btn, & > .edit-btn {
 			position: absolute;
 			top: 0;
-			right: 0;
+			&.delete-btn {
+				right: 0;
+			}
+			&.edit-btn {
+				left: 0;
+			}
 			font-size: 9px;
 			font-weight: bold;
 			opacity: 0;
@@ -52,8 +62,12 @@ html, body {
 			cursor: pointer;
 		}
 		
-		&:hover > .delete-btn {
+		&:hover > .delete-btn, &:hover > .edit-btn {
 			opacity: 1;
+		}
+
+		input.task-edit {
+			text-align: center;
 		}
 	}
 }

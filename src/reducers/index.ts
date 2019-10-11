@@ -26,6 +26,14 @@ export default function rootReducer(state = initialState, action: ActionSchema):
 			...state,
 			tasks: state.tasks.filter((task: TaskSchema) => task.timestamp !== action.timestamp)
 		};
+		case ACTION.EDIT_TASK: return {
+			...state,
+			tasks: state.tasks.map(t => {
+				if(t.timestamp === action.timestamp)
+					t.content = action.content;
+				return t;
+			})
+		};
 		case ACTION.REJECT_TASK: return {
 			...state,
 			rejected_task_reason: action.reason

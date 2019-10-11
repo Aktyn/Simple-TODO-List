@@ -5,7 +5,7 @@ import {StateType} from "../reducers";
 export const storageSaver: Middleware = (store) => (next) => (action: ActionSchema) => {
 	let result = next(action);
 	
-	if(action.type === ACTION.ADD_TASK || action.type === ACTION.DELETE_TASK) {
+	if( [ACTION.ADD_TASK, ACTION.DELETE_TASK, ACTION.EDIT_TASK].includes(action.type) ) {
 		//save tasks local storage
 		let tasks = (store.getState() as StateType).tasks;
 		localStorage.setItem('tasks', JSON.stringify(tasks));

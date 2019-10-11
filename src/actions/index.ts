@@ -3,6 +3,7 @@
 export enum ACTION {
 	ADD_TASK,
 	DELETE_TASK,
+	EDIT_TASK,
 	REJECT_TASK
 }
 
@@ -16,9 +17,15 @@ export interface ActionDeleteTask {
 	timestamp: number
 }
 
+export interface ActionEditTask {
+	type: ACTION.EDIT_TASK;
+	timestamp: number;
+	content: string;
+}
+
 export interface ActionRejectTask {
 	type: ACTION.REJECT_TASK;
 	reason: string;
 }
 
-export type ActionSchema = ActionAddTask | ActionDeleteTask | ActionRejectTask;
+export type ActionSchema = ActionAddTask | ActionDeleteTask | ActionEditTask | ActionRejectTask;
