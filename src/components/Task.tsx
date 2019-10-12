@@ -21,7 +21,7 @@ interface TaskState {
     edit: boolean;
 }
 
-class Task extends React.Component<TaskProps, TaskState> {
+export class Task extends React.Component<TaskProps, TaskState> {
     private taskInput: HTMLInputElement | null = null;
 
     state: TaskState = {

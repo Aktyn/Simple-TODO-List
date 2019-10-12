@@ -1,5 +1,3 @@
-// import {TaskSchema} from "../reducers";
-
 export enum ACTION {
 	ADD_TASK,
 	DELETE_TASK,
