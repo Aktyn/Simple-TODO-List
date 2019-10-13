@@ -26,7 +26,6 @@ class ControlPanel extends React.Component<ControlPanelProps> {
 	private addTask() {
 		if (!this.task_input)
 			return;
-		
 		this.props.addTask(this.task_input.value);
 		this.task_input.value = '';
 	}
@@ -34,7 +33,7 @@ class ControlPanel extends React.Component<ControlPanelProps> {
 	render() {
 		return <div>
 			<h4>Control panel</h4>
-			<div style={{
+			<div data-test="error-msg" style={{
 				color: '#ef5350',
 				fontSize: '12px',
 				...widthStyle

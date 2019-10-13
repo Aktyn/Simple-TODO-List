@@ -21,7 +21,7 @@ interface TaskState {
     edit: boolean;
 }
 
-export class Task extends React.Component<TaskProps, TaskState> {
+class Task extends React.Component<TaskProps, TaskState> {
     private taskInput: HTMLInputElement | null = null;
 
     state: TaskState = {
@@ -34,7 +34,7 @@ export class Task extends React.Component<TaskProps, TaskState> {
                 <input className='task-edit' type='text' defaultValue={this.props.data.content} 
                     ref={el => this.taskInput = el}/>
             </div>
-            <button onClick={() => {
+            <button data-test="edit-apply-btn" onClick={() => {
                 if(this.taskInput)
                     this.props.editTask(this.taskInput.value, this.props.data.timestamp);
                 this.setState({edit: false});
