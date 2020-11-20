@@ -7,18 +7,51 @@ html, body {
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	background-color: #fff;
+	background-color: #263238;
+	color: #CFD8DC;
 }
 
 button {
+	outline: none;
 	cursor: pointer;
+	color: #CFD8DC;
+	background-color: #37474F;
+	border: 1px solid #546E7A;
+	border-radius: 4px;
+	padding: 8px;
+
+	box-shadow: 0 2px 4px #0004;
+
+	transition: background-color 0.15s ease-in-out;
+
+	&:hover {
+		background-color: #546E7A;
+	}
+}
+
+input {
+	outline: none;
+	color: #CFD8DC;
+	background: #37474F;
+	border: 1px solid #546E7A;
+	border-radius: 4px;
+	padding: 8px;
+
+	&:focus {
+		border-color: #009688;
+	}
 }
 
 .layout {
+	margin: auto;
 	display: inline-grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: auto auto;
 	grid-column-gap: 30px;
 	padding: 0;
+}
+
+h6 {
+	color: #90A4AE;
 }
 
 .tasks-list {
@@ -28,22 +61,23 @@ button {
 	
 	& > * {//individual task
 		animation: appear 0.3s ease-in-out forwards;
+		text-align: left;
 		
 		@keyframes appear {
 			0% {
-				opacity: 0;
-				transform: scale(0);
+				opacity: 0.4;
+				transform: translateY(-50px);
 			}
 			100% {
 				opacity: 1;
-				transform: scale(1);
+				transform: translateY(0px);
 			}
 		}
 		
 		position: relative;
 		padding: 15px 0;
 		&:not(:last-child) {
-			border-bottom: 1px solid #0008;
+			border-bottom: 1px solid #37474F;
 		}
 		
 		& > .delete-btn, & > .edit-btn {
